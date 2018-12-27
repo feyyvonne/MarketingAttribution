@@ -10,7 +10,7 @@ head(channel)
 
 #add conversion tag#
    for(row in 1:nrow(channel))
-+ {if(90 %in% channel[row,]){channel$convert[row] = 1}}
+{if(90 %in% channel[row,]){channel$convert[row] = 1}}
 column = colnames(channel)
 channel$path = do.call(paste, c(channel[column], sep = " > "))
 head(channel$path)
@@ -18,7 +18,7 @@ head(channel$path)
 #split conversion tag with channel numbers#
 
 for(row in 1:nrow(channel))
-+ {channel$path[row] = strsplit(channel$path[row], " > 90")[[1]][1]}
+(channel$path[row] = strsplit(channel$path[row], " > 90")[[1]][1]}
  head(channel$path)
 
  channel_fin = channel[,c(34,33)]
@@ -44,10 +44,10 @@ for(row in 1:nrow(channel))
  #Plot to compaire four different models#
  
  ggplot(R1, aes(channel_name, value, fill = variable)) +
-+   geom_bar(stat='identity', position='dodge') +
-+   ggtitle('TOTAL CONVERSIONS') +
-+   theme(axis.title.x = element_text(vjust = -2)) +
-+   theme(axis.title.y = element_text(vjust = +2)) +
-+   theme(title = element_text(size = 16)) +
-+   theme(plot.title=element_text(size = 20)) +
-+   ylab("")
+   geom_bar(stat='identity', position='dodge') +
+   ggtitle('TOTAL CONVERSIONS') +
+   theme(axis.title.x = element_text(vjust = -2)) +
+   theme(axis.title.y = element_text(vjust = +2)) +
+   theme(title = element_text(size = 16)) +
+   theme(plot.title=element_text(size = 20)) +
+   ylab("")
